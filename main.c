@@ -1,6 +1,6 @@
 //CRUD Sistema de cadastro 
 //Candidatos ENEM
-//versão 1.0.0
+//versão 10.25.19
 //O projeto visa desenvolver um programa em linguagem c capaz de armazenar e consultar dados em arquivos/streams - armazenamento secundário.
 //O pragrama será composto primordialmente por um menu de opções, sendo:
 //a)cadastrar pessoa
