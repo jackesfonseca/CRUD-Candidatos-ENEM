@@ -1,7 +1,7 @@
 # CRUD-Candidatos-ENEM
 O projeto visa desenvolver um programa em linguagem c capaz de armazenar e consultar dados em arquivos/streams - armazenamento secundário
 versão 1.0.0
-O projeto visa desenvolver um programa em linguagem c capaz de armazenar e consultar dados em arquivos/streams - armazenamento secundário
+
 O pragrama será composto primordialmente por um menu de opções, sendo:
 a)cadastrar pessoa
 b)Cadastrar estado
