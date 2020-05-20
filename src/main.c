@@ -1,22 +1,22 @@
 //CRUD Sistema de cadastro 
 //Candidatos ENEM
-//vers√£o 10.25.19
-//O projeto visa desenvolver um programa em linguagem c capaz de armazenar e consultar dados em arquivos/streams - armazenamento secund√°rio.
-//O pragrama ser√° composto primordialmente por um menu de op√ß√µes, sendo:
+//vers„o 10.25.19
+//O projeto visa desenvolver um programa em linguagem c capaz de armazenar e consultar dados em arquivos/streams - armazenamento secund·rio.
+//O pragrama ser· composto primordialmente por um menu de opÁıes, sendo:
 //a)cadastrar pessoa
 //b)Cadastrar estado
 //c)Cadastrar curso
 //d)Listar pessoas por estado
 //e)Listar pessoa por curso desejado
 //f)Consultar pessoa por nome
-//g)Gerar relat√≥rio demogr√°fico
+//g)Gerar relatÛrio demogr·fico
 //h)finalizar programa
-//cada item realizado por um procedimento espec√≠fico
-//De acordo com as pol√≠ticas de entrega de atividades repassadas pelo professor, certifico que os algoritmos e programas que estou entregando s√£o de minha autoria e que n√£o os repassei ou os recebi de qualquer outra pessoa.
+//cada item realizado por um procedimento especÌfico
+//De acordo com as polÌticas de entrega de atividades repassadas pelo professor, certifico que os algoritmos e programas que estou entregando s„o de minha autoria e que n„o os repassei ou os recebi de qualquer outra pessoa.
 //Por Jackes Tiago Ferreira da Fonseca 19/0030291
 
-//declara√ß√£o de constantes
-//importa√ß√£o de arquivos de cabe√ßalho
+//declaraÁ„o de constantes
+//importaÁ„o de arquivos de cabeÁalho
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -33,14 +33,14 @@ typedef struct candidato{
 	char estado[MAX], unidade_federacao[MAX];
 }Candidato;
 
-//prot√≥tipo das fun√ß√µes
-int menu();//Cria o menu de sele√ß√£o de op√ß√µes
-int verifica_opcao(int opcao);//Verifica se a op√ß√£o escolhida pelo usu√°rio √© v√°lida
+//protÛtipo das funÁıes
+int menu();//Cria o menu de seleÁ„o de opÁıes
+int verifica_opcao(int opcao);//Verifica se a opÁ„o escolhida pelo usu·rio È v·lida
 void cadastrar_candidato();//Faz o cadastro pelo nome do candidato
-int verifica_data_nascimento(Candidato cadastro);//Verifica se a data de nascimento √© valida
-int verifica_sexo(Candidato cadastro);//Verifica se o sexo informado √© v√°lido
-int valida_curso(Candidato cadastro);//Verifica se o curso est√° previamente cadastrado
-int valida_estado(Candidato cadastro);//Verifica se o estado est√° previamente cadastrado
+int verifica_data_nascimento(Candidato cadastro);//Verifica se a data de nascimento È valida
+int verifica_sexo(Candidato cadastro);//Verifica se o sexo informado È v·lido
+int valida_curso(Candidato cadastro);//Verifica se o curso est· previamente cadastrado
+int valida_estado(Candidato cadastro);//Verifica se o estado est· previamente cadastrado
 void cadastrar_curso();//Cadastrar curso
 int recorrencia_curso(Candidato cadastro);//impede que um curso existente seja cadastrado novamente
 void cadastrar_estado();//Cadastrar estado
@@ -48,36 +48,36 @@ int recorrencia_estado(Candidato cadastro);//impede que um estado existente seja
 void listar_estado();//consultar pessoa por estado
 void listar_nome();//consultar pessoa por nome
 void listar_curso();//consultar pessoa por curso
-void relatorio_demografico();//gerar relat√≥rio demogr√°fico
+void relatorio_demografico();//gerar relatÛrio demogr·fico
 
-Candidato cadastro;//declara√ß√£o vari√°vel cadastro do tipo struct Candidato
+Candidato cadastro;//declaraÁ„o vari·vel cadastro do tipo struct Candidato
 
-// fun√ß√£o principal
+// funÁ„o principal
 int main(void){
 	
 	system("color F0");//altera cor do terminal
-	setlocale(LC_ALL,"Portuguese, Brazil");//localiza√ß√£o de programas para o uso de caracteres especiais
+	setlocale(LC_ALL,"Portuguese, Brazil");//localizaÁ„o de programas para o uso de caracteres especiais
 	
 	int opcao;
 	
-	//abre o menu de sele√ß√£o de op√ß√µes
+	//abre o menu de seleÁ„o de opÁıes
 	opcao = menu();
 	system("cls");//limpar terminal
 	
-	//caso op√ß√£o informada no menu seja inv√°lida
+	//caso opÁ„o informada no menu seja inv·lida
 	while((verifica_opcao(opcao))==0){
 		system("cls");
 		printf("===========================================================\n");
-		printf("|               **********ATEN√á√ÉO**********               |\n");
+		printf("|               **********ATEN«√O**********               |\n");
 		printf("|                                                         |\n");
-		printf("|                      Op√ß√£o inv√°lida!                    |\n");
+		printf("|                      OpÁ„o inv·lida!                    |\n");
 		printf("|           pressione <enter> para voltar ao MENU         |\n");
 		printf("===========================================================\n");
 		getchar();//voltar ao menu
 		opcao = menu();
 	}
 	
-	//faz a verifica√ß√£o de uma das op√ß√µes validas escolhida pelo usu√°rio
+	//faz a verificaÁ„o de uma das opÁıes validas escolhida pelo usu·rio
 	switch((verifica_opcao(opcao))){
 		case 1:
 			cadastrar_candidato();break;
@@ -98,7 +98,7 @@ int main(void){
 	}
 }
 
-//menu de sele√ß√£o de op√ß√µes
+//menu de seleÁ„o de opÁıes
 
 int menu(){
 	int opcao;
@@ -107,7 +107,7 @@ int menu(){
 	printf("===========================================================\n");
 	printf("|                 **********MENU**********                |\n");
 	printf("|                                                         |\n");
-	printf("|                    Escolha uma op√ß√£o                    |\n");
+	printf("|                    Escolha uma opÁ„o                    |\n");
 	printf("|                                                         |\n");
 	printf("|1 - Cadastrar pessoa                                     |\n");
 	printf("|2 - Cadastrar curso                                      |\n");
@@ -115,10 +115,10 @@ int menu(){
 	printf("|4 - Listar pessoas por estado                            |\n");
 	printf("|5 - Listar pessoas por curso desejado                    |\n");
 	printf("|6 - Consultar pessoa por nome                            |\n");
-	printf("|7 - Gerar relat√≥rio demogr√°fico                          |\n");
+	printf("|7 - Gerar relatÛrio demogr·fico                          |\n");
 	printf("|8 - Finalizar programa                                   |\n");
 	printf("===========================================================\n");
-	printf("\nop√ß√£o: ");
+	printf("\nopÁ„o: ");
 	fflush(stdout);//buffer de saida
 	scanf("%d", &opcao);
 	getchar();//buffer
@@ -126,7 +126,7 @@ int menu(){
 	return opcao;
 }
 
-//faz a verifica√ß√£o e retorna um valor para a op√ß√£o escolhida
+//faz a verificaÁ„o e retorna um valor para a opÁ„o escolhida
 
 int verifica_opcao(int opcao){
 	switch(opcao){
@@ -136,9 +136,9 @@ int verifica_opcao(int opcao){
     case 4: return 4;//listar pessoas por estado
     case 5: return 5;//listar pessoas por curso desejado
     case 6: return 6;//consultar pessoa por nome
-    case 7: return 7;//gerar relat√≥rio demogr√°fico
+    case 7: return 7;//gerar relatÛrio demogr·fico
     case 8: return 8;//finalizar programa
-    default: return 0;//op√ß√£o inv√°lida
+    default: return 0;//opÁ„o inv·lida
 	}
 }
 
@@ -147,13 +147,13 @@ int verifica_opcao(int opcao){
 void cadastrar_candidato(){	
 	system("cls");//limpar terminal
 	fflush(stdout);//buffer de saida
-	FILE *relatorio_pessoa;//declara√ß√£o da vari√°vel relatorio_pessoa do tipo FILE
+	FILE *relatorio_pessoa;//declaraÁ„o da vari·vel relatorio_pessoa do tipo FILE
 	
 	//Coleta de dados do candidato
 	printf("===========================================================\n");
-	printf("|              **********OBSERVA√á√ÉO**********             |\n");
+	printf("|              **********OBSERVA«√O**********             |\n");
 	printf("|                                                         |\n");
-	printf("|              N√£o use acentos e/ou pontu√ß√£o              |\n");
+	printf("|              N„o use acentos e/ou pontuÁ„o              |\n");
 	printf("===========================================================\n");
 	printf("\n");
 	printf("===========================================================\n");
@@ -162,7 +162,7 @@ void cadastrar_candidato(){
 	printf("nome: ");
 	fflush(stdout);//buffer de saida
 	fgets(cadastro.nome, MAX, stdin);
-	strupr(cadastro.nome);//converte para caracteres mai√∫sculos
+	strupr(cadastro.nome);//converte para caracteres mai˙sculos
 	
 	printf("===========================================================\n");	
 	printf("|         Informe a data de nascimento(DD/MM/AAAA)        |\n");
@@ -171,18 +171,18 @@ void cadastrar_candidato(){
 	fflush(stdout);//buffer de saida
 	fgets(cadastro.data_nascimento, MIN, stdin);
 		
-	//verifica se data de nascimento √© v√°lida
+	//verifica se data de nascimento È v·lida
 	
     if((verifica_data_nascimento(cadastro))!=0){
         while((verifica_data_nascimento(cadastro))!=0){
         	printf("===========================================================\n");
         	printf("|                 **********ERRO**********                |\n");
         	printf("|                                                         |\n");
-        	printf("|               data de nascimento inv√°lida!              |\n");
-        	printf("|    Informe uma data de nascimento v√°lida(DD/MM/AAAA)    |\n");
+        	printf("|               data de nascimento inv·lida!              |\n");
+        	printf("|    Informe uma data de nascimento v·lida(DD/MM/AAAA)    |\n");
         	printf("===========================================================\n");
         	printf("nascimento: ");
-        	fflush(stdout);//buffer de sa√≠da
+        	fflush(stdout);//buffer de saÌda
 			fgets(cadastro.data_nascimento, MIN, stdin);
         }
     }
@@ -191,21 +191,21 @@ void cadastrar_candidato(){
 	printf("|           Informe o sexo (masculino/feminino)           |\n");
 	printf("===========================================================\n");
 	printf("sexo: ");
-	fflush(stdout);//buffer de sa√≠da
+	fflush(stdout);//buffer de saÌda
 	fgets(cadastro.sexo, MIN, stdin);
 	strupr(cadastro.sexo);
 	
-	//verifica se o sexo √© v√°lido
+	//verifica se o sexo È v·lido
 	if((verifica_sexo(cadastro))==1){
 		while((verifica_sexo(cadastro))==1){
         	printf("===========================================================\n");
         	printf("|                 **********ERRO**********                |\n");
         	printf("|                                                         |\n");
-        	printf("|                      sexo inv√°lido!                     |\n");
-        	printf("|       Informe um sexo v√°lido (masculino/feminino)       |\n");
+        	printf("|                      sexo inv·lido!                     |\n");
+        	printf("|       Informe um sexo v·lido (masculino/feminino)       |\n");
         	printf("===========================================================\n");
 			printf("sexo: ");
-			fflush(stdout);//buffer de sa√≠da
+			fflush(stdout);//buffer de saÌda
 			fgets(cadastro.sexo, MIN, stdin);
 			strupr(cadastro.sexo);		
 		}
@@ -215,60 +215,60 @@ void cadastrar_candidato(){
 	printf("|                     Informe o curso                     |\n");
 	printf("===========================================================\n");
 	printf("curso: ");
-	fflush(stdout);//buffer de sa√≠da
+	fflush(stdout);//buffer de saÌda
 	fgets(cadastro.curso, MAX, stdin);
 	strupr(cadastro.curso);
 	
-	//verifica se o curso informado j√° est√° previamente cadastrado
+	//verifica se o curso informado j· est· previamente cadastrado
 	if((valida_curso(cadastro))==0){
 		system("cls");//limpar o terminal
 		printf("===========================================================\n");
-		printf("|               **********ATEN√á√ÉO**********               |\n");
+		printf("|               **********ATEN«√O**********               |\n");
 		printf("|                                                         |\n");
-		printf("|                  Curso n√£o cadastrado..                 |\n");
+		printf("|                  Curso n„o cadastrado..                 |\n");
 		printf("|           pressione <enter> para voltar ao MENU         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();
 	}
 	
 	printf("===========================================================\n");
-	printf("|          Informe a Unidade de Federa√ß√£o (UF)            |\n");
+	printf("|          Informe a Unidade de FederaÁ„o (UF)            |\n");
 	printf("===========================================================\n");
 	printf("UF: ");
-	fflush(stdout);//buffer de sa√≠da
+	fflush(stdout);//buffer de saÌda
 	fgets(cadastro.unidade_federacao, MIN, stdin);
 	strupr(cadastro.unidade_federacao);
 	
-    //verifica se o estado informado j√° est√° previamente cadastrado
+    //verifica se o estado informado j· est· previamente cadastrado
 	if((valida_estado(cadastro))==0){
 		system("cls");//limpar o terminal
 		printf("===========================================================\n");
-		printf("|               **********ATEN√á√ÉO**********               |\n");
+		printf("|               **********ATEN«√O**********               |\n");
 		printf("|                                                         |\n");
-		printf("|                 Estado n√£o cadastrado..                 |\n");
+		printf("|                 Estado n„o cadastrado..                 |\n");
 		printf("|             pressione <enter> para continuar            |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();
 	}
 	
-	relatorio_pessoa = fopen("relatorio_pessoa.txt", "a");//abre arquivo tipo texto para inclus√£o de dados
+	relatorio_pessoa = fopen("..\\font\\relatorio_pessoa.txt", "a");//abre arquivo tipo texto para inclus„o de dados
 	
-	//caso o arquivo n√£o exista o programa retorna NULL e volta para o menu 
+	//caso o arquivo n„o exista o programa retorna NULL e volta para o menu 
 	if(relatorio_pessoa==NULL){
 		printf("===========================================================\n");
 		printf("|                Erro ao abrir o arquivo..                |\n");
 		printf("|           pressione <enter> para voltar ao MENU         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();
 	}
 	
-	//caso todos dados informados sejam v√°lidos armazena-os no arquivo relatorio_pessoa.txt
+	//caso todos dados informados sejam v·lidos armazena-os no arquivo relatorio_pessoa.txt
 	fflush(stdin);
 	fprintf(relatorio_pessoa, "%s", cadastro.nome);
 	fprintf(relatorio_pessoa, "%s", cadastro.data_nascimento);
@@ -283,7 +283,7 @@ void cadastrar_candidato(){
 	printf("|               Dados gravados com suceso...              |\n");
 	printf("|           pressione <enter> para voltar ao MENU         |\n");
 	printf("===========================================================\n");
-	fflush(stdout);//buffer de sa√≠da
+	fflush(stdout);//buffer de saÌda
 	getchar();//voltar ao menu
 	main();
 }
@@ -297,7 +297,7 @@ int verifica_data_nascimento(Candidato cadastro){
     
     tamanho_data = strlen(cadastro.data_nascimento);
     
-    //verifica o tamnho da data de nascimento informada pelo usu√°rio
+    //verifica o tamnho da data de nascimento informada pelo usu·rio
     if(tamanho_data!=11){
     	flag++;
 	}
@@ -305,15 +305,15 @@ int verifica_data_nascimento(Candidato cadastro){
     data_dia = strtok(cadastro.data_nascimento, "/");//separa a data de nascimento para pegar o dia
     dia = atoi(data_dia);//converte a string para inteiro
     
-    //verifica se o dia √© maior 31
+    //verifica se o dia È maior 31
     if(dia>31){
     	flag++;
 	}
     
-	data_mes = strtok(NULL, "/");//separa a data de nascimento para pegar o m√™s		
+	data_mes = strtok(NULL, "/");//separa a data de nascimento para pegar o mÍs		
 	mes = atoi(data_mes);//converte a string para inteiro
 	
-	//verifica se m√™s √© maior que 12
+	//verifica se mÍs È maior que 12
 	if(mes>12){
 		flag++;
 	}
@@ -335,30 +335,30 @@ int verifica_sexo(Candidato cadastro){
 	return flag;
 }
 
-//Verifica se o curso j√° est√° cadastrado para incluir uma nova pessoa
+//Verifica se o curso j· est· cadastrado para incluir uma nova pessoa
 
 int valida_curso(Candidato cadastro){
 	FILE *relatorio_curso;
 	char procura_curso[MAX];
 	int flag=0;
 	
-	relatorio_curso = fopen("relatorio_curso.txt", "r");//abre o arquivo relatorio_curso.txt tipo texto para √ßeitura
+	relatorio_curso = fopen("..\\font\\relatorio_curso.txt", "r");//abre o arquivo relatorio_curso.txt tipo texto para Áeitura
 
-	//verifica se n√£o houve erro para abrir o arquivo	
+	//verifica se n„o houve erro para abrir o arquivo	
 	if(valida_curso == NULL){
 		system("cls");//limpar o terminal
 		printf("===========================================================\n");
-		printf("|               **********ATEN√á√ÉO**********               |\n");
+		printf("|               **********ATEN«√O**********               |\n");
 		printf("|                                                         |\n");
-		printf("|                  Curso n√£o cadastrado..                 |\n");
+		printf("|                  Curso n„o cadastrado..                 |\n");
 		printf("|           pressione <enter> para voltar ao MENU         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();
 	}
 	
-	//percorre todo o arquivo relat√≥rio_curso.txt para ver o curso informado existe
+	//percorre todo o arquivo relatÛrio_curso.txt para ver o curso informado existe
 	while(fgets(procura_curso, MAX, relatorio_curso)!=NULL){
 		if(strcmp(procura_curso, cadastro.curso)==0){
 			flag++;
@@ -370,30 +370,30 @@ int valida_curso(Candidato cadastro){
 	return flag;
 }
 
-//Verifica se o estado j√° est√° cadastrado para incluir uma nova pessoa
+//Verifica se o estado j· est· cadastrado para incluir uma nova pessoa
 
 int valida_estado(Candidato cadastro){
 	FILE *relatorio_estado;
 	char procura_uf[MIN];
 	int flag=0;
 	
-	relatorio_estado = fopen("relatorio_estado.txt", "r");//abre o arquivo relatorio_estado.txt tipo texto para √ßeitura
+	relatorio_estado = fopen("..\\font\\relatorio_estado.txt", "r");//abre o arquivo relatorio_estado.txt tipo texto para Áeitura
 	
-	//verifica se n√£o houve erro para abrir o arquivo
+	//verifica se n„o houve erro para abrir o arquivo
 	if(valida_estado == NULL){
 		system("cls");//limpar o terminal
 		printf("===========================================================\n");
-		printf("|               **********ATEN√á√ÉO**********               |\n");
+		printf("|               **********ATEN«√O**********               |\n");
 		printf("|                                                         |\n");
-		printf("|                 Estado n√£o cadastrado..                 |\n");
+		printf("|                 Estado n„o cadastrado..                 |\n");
 		printf("|           pressione <enter> para voltar ao MENU         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();
 	}
 	
-	//percorre todo o arquivo relat√≥rio_estado.txt para ver o esatdo informado existe
+	//percorre todo o arquivo relatÛrio_estado.txt para ver o esatdo informado existe
 	while((fgets(procura_uf, MIN, relatorio_estado))!=NULL){
 		if(strcmp(procura_uf, cadastro.unidade_federacao)==0){
 			flag++;
@@ -411,43 +411,43 @@ void cadastrar_curso(){
 	fflush(stdin);//buffer de entrada
 	FILE *relatorio_curso;
 	
-	relatorio_curso = fopen("relatorio_curso.txt", "a");//abre o arquivo relatorio_curso,txt para adicionar dados no final
+	relatorio_curso = fopen("..\\font\\relatorio_curso.txt", "a");//abre o arquivo relatorio_curso,txt para adicionar dados no final
 	
 	if(relatorio_curso==NULL){
 		printf("===========================================================\n");
-		printf("|               **********ATEN√á√ÉO**********               |\n");
+		printf("|               **********ATEN«√O**********               |\n");
 		printf("|                                                         |\n");
 		printf("|                Erro ao abrir o arquivo..                |\n");
 		printf("|           pressione <enter> para voltar ao MENU         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//buffer de entrada
 		main();
 	}
 	printf("===========================================================\n");
-	printf("|              **********OBSERVA√á√ÉO**********             |\n");
+	printf("|              **********OBSERVA«√O**********             |\n");
 	printf("|                                                         |\n");
-	printf("|              N√£o use acentos e/ou pontu√ß√£o              |\n");
+	printf("|              N„o use acentos e/ou pontuÁ„o              |\n");
 	printf("===========================================================\n");
 	printf("\n");
 	printf("===========================================================\n");
 	printf("|           Informe o curso para ser cadastrado           |\n");
 	printf("===========================================================\n");
 	printf("curso: ");
-	fflush(stdout);//buffer de sa√≠da
+	fflush(stdout);//buffer de saÌda
 	fgets(cadastro.curso, MAX, stdin);
 	strupr(cadastro.curso);
 	
-	//verifica se o curso j√° est√° cadastrado
+	//verifica se o curso j· est· cadastrado
 	if(recorrencia_curso(cadastro)!=0){
 		system("cls");//limpar terminal
 		printf("===========================================================\n");
-		printf("|                **********ATEN√á√ÉO*********               |\n");
+		printf("|                **********ATEN«√O*********               |\n");
 		printf("|                                                         |\n");
-		printf("|                 Curso j√° est√° cadastrado                |\n");
+		printf("|                 Curso j· est· cadastrado                |\n");
 		printf("|           pressione <enter> para voltar ao MENU         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//limpar terminal
 		main();			
 	}
@@ -460,7 +460,7 @@ void cadastrar_curso(){
 		printf("|               Dados gravados com suceso..               |\n");
 		printf("|           pressione <enter> para voltar ao MENU         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();	
 	}
@@ -474,21 +474,21 @@ int recorrencia_curso(Candidato cadastro){
 	
 	FILE *relatorio_curso;
 	
-	relatorio_curso = fopen("relatorio_curso.txt", "r");
+	relatorio_curso = fopen("..\\font\\relatorio_curso.txt", "r");
 	
 	if(relatorio_curso==NULL){
 		printf("===========================================================\n");
 		printf("|                Erro ao abrir o arquivo..                |\n");
 		printf("|           pressione <enter> para voltar ao MENU         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();		
 	}
 	//compara todas as strings do arquivo relatorio_curso.txt com a informada
 	while(fgets(procura_curso, MAX, relatorio_curso)!=NULL){
 		if(strcmp(procura_curso, cadastro.curso)==0){
-			flag++;//incrementa a vari√°vel flag caso exista uma de mesmo nome
+			flag++;//incrementa a vari·vel flag caso exista uma de mesmo nome
 		}
 	}
 	fclose(relatorio_curso);
@@ -503,51 +503,51 @@ void cadastrar_estado(){
 	fflush(stdin);//buffer de entrada
 	FILE *relatorio_estado;
 	
-	relatorio_estado = fopen("relatorio_estado.txt", "a");//abre o arquivo relatorio_curso,txt para adicionar dados no final
+	relatorio_estado = fopen("..\\font\\relatorio_estado.txt", "a");//abre o arquivo relatorio_curso,txt para adicionar dados no final
 	
 	if(relatorio_estado==NULL){
 		printf("===========================================================\n");
-		printf("|               **********ATEN√á√ÉO**********               |\n");
+		printf("|               **********ATEN«√O**********               |\n");
 		printf("|                                                         |\n");
 		printf("|                Erro ao abrir o arquivo..                |\n");
 		printf("|           pressione <enter> para voltar ao MENU         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();
 	}
 	printf("===========================================================\n");
-	printf("|              **********OBSERVA√á√ÉO**********             |\n");
+	printf("|              **********OBSERVA«√O**********             |\n");
 	printf("|                                                         |\n");
-	printf("|              N√£o use acentos e/ou pontu√ß√£o              |\n");
+	printf("|              N„o use acentos e/ou pontuÁ„o              |\n");
 	printf("===========================================================\n");
 	printf("\n");
 	printf("===========================================================\n");
 	printf("|           Informe o estado para ser cadastrado          |\n");
 	printf("===========================================================\n");
 	printf("estado (ex. sao paulo): ");
-	fflush(stdout);//buffer de sa√≠da
+	fflush(stdout);//buffer de saÌda
 	fgets(cadastro.estado, MAX, stdin);
 	strupr(cadastro.estado);
 	
 	printf("===========================================================\n");
-	printf("|          Informe a Unidadde de Federa√ß√£o (UF)           |\n");
+	printf("|          Informe a Unidadde de FederaÁ„o (UF)           |\n");
 	printf("===========================================================\n");
 	printf("UF (ex. sp): ");
-	fflush(stdout);//buffer de sa√≠da
+	fflush(stdout);//buffer de saÌda
 	fgets(cadastro.unidade_federacao, MAX, stdin);
 	strupr(cadastro.unidade_federacao);
 	
-	//verifica se o estado j√° est√° cadastrado
+	//verifica se o estado j· est· cadastrado
 	if(recorrencia_estado(cadastro)!=0){
 		system("cls");
 		printf("===========================================================\n");
-		printf("|                **********ATEN√á√ÉO*********               |\n");
+		printf("|                **********ATEN«√O*********               |\n");
 		printf("|                                                         |\n");
-		printf("|                 Estado j√° est√° cadastrado               |\n");
+		printf("|                 Estado j· est· cadastrado               |\n");
 		printf("|           pressione <enter> para voltar ao MENU         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();			
 	}
@@ -561,7 +561,7 @@ void cadastrar_estado(){
 		printf("|               Dados gravados com suceso..               |\n");
 		printf("|           pressione <enter> para voltar ao menu         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();
 	}
@@ -575,16 +575,16 @@ int recorrencia_estado(Candidato cadastro){
 	
 	FILE *relatorio_estado;
 	
-	relatorio_estado = fopen("relatorio_estado.txt", "r");
+	relatorio_estado = fopen("..\\font\\relatorio_estado.txt", "r");
 	
 	if(relatorio_estado==NULL){
 		printf("===========================================================\n");
-		printf("|                **********ATEN√á√ÉO**********              |\n");
+		printf("|                **********ATEN«√O**********              |\n");
 		printf("|                                                         |\n");
 		printf("|                Erro ao abrir o arquivo..                |\n");
 		printf("|           pressione <enter> para voltar ao MENU         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();		
 	}
@@ -592,7 +592,7 @@ int recorrencia_estado(Candidato cadastro){
 	//compara todas as strings do arquivo relatorio_curso.txt com a informada
 	while(fgets(procura_estado, MAX, relatorio_estado)){
 		if(strcmp(procura_estado, cadastro.unidade_federacao)==0){
-			flag++;//inclrementa a vari√°vel flag caso exista uma de mesmo nome
+			flag++;//inclrementa a vari·vel flag caso exista uma de mesmo nome
 		}
 	}
 	fclose(relatorio_estado);
@@ -618,26 +618,26 @@ void listar_nome(){
 	gets(nome);
 	system("cls");//limpar terminal
 
-	//converte letras min√∫sculas para mai√∫sculas	
+	//converte letras min˙sculas para mai˙sculas	
 	for(tamanho_nome=0; tamanho_nome<strlen(nome); tamanho_nome++){
 		nome[tamanho_nome] = toupper(nome[tamanho_nome]);	
 	}
 	
-	relatorio_pessoa = fopen ("relatorio_pessoa.txt","r");
+	relatorio_pessoa = fopen ("..\\font\\relatorio_pessoa.txt","r");
 	
 	if(relatorio_pessoa==NULL){
 		printf("===========================================================\n");
-		printf("|               **********ATEN√á√ÉO**********               |\n");
+		printf("|               **********ATEN«√O**********               |\n");
 		printf("|                                                         |\n");
-		printf("|                   pessoa n√£o cadastrada                 |\n");
+		printf("|                   pessoa n„o cadastrada                 |\n");
 		printf("|           pressione <enter> para voltar ao menu         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();
 	}
 	
-	//la√ßo que ler todos os dados arquivo
+	//laÁo que ler todos os dados arquivo
 	else{
 		while(!feof(relatorio_pessoa)){
 			achou=0;
@@ -649,7 +649,7 @@ void listar_nome(){
 			fgets(procura_nome[linha_arquivo+3], MAX, relatorio_pessoa);
 			fgets(procura_nome[linha_arquivo+4], MAX, relatorio_pessoa);
 			
-			//verifica se o nome buscado est√° contido em qualquer string do arquivo
+			//verifica se o nome buscado est· contido em qualquer string do arquivo
 			if(strstr(procura_nome[linha_arquivo], nome)){
 				achou=1;
 			}
@@ -676,17 +676,17 @@ void listar_nome(){
 	fflush(stdin);//buffer de entrada
 	fclose(relatorio_pessoa);
 	
-	//caso n√£o exista candidados cadastrados com o nome buscado
+	//caso n„o exista candidados cadastrados com o nome buscado
 	if(flag==0){
 		flag=0;
 		system("cls");
 		printf("===========================================================\n");
-		printf("|               **********ATEN√á√ÉO**********               |\n");
+		printf("|               **********ATEN«√O**********               |\n");
 		printf("|                                                         |\n");
-		printf("|                   pessoa n√£o cadastrada                 |\n");
+		printf("|                   pessoa n„o cadastrada                 |\n");
 		printf("|           pressione <enter> para voltar ao menu         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();		
 	}
@@ -695,7 +695,7 @@ void listar_nome(){
 		printf("===========================================================\n");
 		printf("|           pressione <enter> para voltar ao MENU         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();
 	}
@@ -715,31 +715,31 @@ void listar_estado(){
 	printf("===========================================================\n");
 	printf("|           Informe o estado para ser consultado          |\n");
 	printf("===========================================================\n");
-	printf("Unidade de Federa√ß√£o: ");
-	fflush(stdout);//buffer de sa√≠da
+	printf("Unidade de FederaÁ„o: ");
+	fflush(stdout);//buffer de saÌda
 	gets(estado);
 	system("cls");//limpar terminal
 	
-	//converte letras min√∫sculas para mai√∫sculas
+	//converte letras min˙sculas para mai˙sculas
 	for(tamanho_nome=0; tamanho_nome<strlen(estado); tamanho_nome++){
 		estado[tamanho_nome] = toupper(estado[tamanho_nome]);
 	}
 	
-	relatorio_pessoa = fopen("relatorio_pessoa.txt", "r");
+	relatorio_pessoa = fopen("..\\font\\relatorio_pessoa.txt", "r");
 	
 	if(relatorio_pessoa == NULL){
 		printf("===========================================================\n");
-		printf("|               **********ATEN√á√ÉO**********               |\n");
+		printf("|               **********ATEN«√O**********               |\n");
 		printf("|                                                         |\n");
-		printf("|  N√£o existe(m) candidato(s) cadastrado(s) nesse estado  |\n");
+		printf("|  N„o existe(m) candidato(s) cadastrado(s) nesse estado  |\n");
 		printf("|           pressione <enter> para voltar ao menu         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();	
 	}
 	
-	//la√ßo que ler todos os dados do arquivo
+	//laÁo que ler todos os dados do arquivo
 	else{
 		while(!feof(relatorio_pessoa)){
 			
@@ -751,7 +751,7 @@ void listar_estado(){
 			fgets(procura_estado[linha_arquivo+3], MAX, relatorio_pessoa);
 			fgets(procura_estado[linha_arquivo+4], MAX, relatorio_pessoa);
 			
-			//verifica se o nome buscado est√° contido em qualquer string do arquivo
+			//verifica se o nome buscado est· contido em qualquer string do arquivo
 			if(strstr(procura_estado[linha_arquivo+4], estado)){
 				achou=1;
 			}
@@ -778,12 +778,12 @@ void listar_estado(){
 	if(flag==0){
 		system("cls");
 		printf("===========================================================\n");
-		printf("|               **********ATEN√á√ÉO**********               |\n");
+		printf("|               **********ATEN«√O**********               |\n");
 		printf("|                                                         |\n");
-		printf("|  N√£o existe(m) candidato(s) cadastrado(s) nesse estado  |\n");
+		printf("|  N„o existe(m) candidato(s) cadastrado(s) nesse estado  |\n");
 		printf("|           pressione <enter> para voltar ao menu         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();		
 	}
@@ -792,7 +792,7 @@ void listar_estado(){
 		printf("===========================================================\n");
 		printf("|           pressione <enter> para voltar ao MENU         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();
 	}
@@ -817,26 +817,26 @@ void listar_curso(){
 	gets(curso);
 	system("cls");//limpar terminal
 	
-	//converte letras min√∫sculas para mai√∫sculas
+	//converte letras min˙sculas para mai˙sculas
 	for(tamanho_nome=0; tamanho_nome<strlen(curso); tamanho_nome++){
 		curso[tamanho_nome] = toupper(curso[tamanho_nome]);
 	}
 	
-	relatorio_pessoa = fopen("relatorio_pessoa.txt", "r");
+	relatorio_pessoa = fopen("..\\font\\relatorio_pessoa.txt", "r");
 	
 	if(relatorio_pessoa == NULL){
 		printf("===========================================================\n");
-		printf("|               **********ATEN√á√ÉO**********               |\n");
+		printf("|               **********ATEN«√O**********               |\n");
 		printf("|                                                         |\n");
-		printf("|  N√£o existe(m) candidato(s) cadastrado(s) nesse curso   |\n");
+		printf("|  N„o existe(m) candidato(s) cadastrado(s) nesse curso   |\n");
 		printf("|           pressione <enter> para voltar ao menu         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();	
 	}
 	
-	//la√ßo que ler todos os dados do arquivo
+	//laÁo que ler todos os dados do arquivo
 	else{
 		while(!feof(relatorio_pessoa)){
 			
@@ -848,7 +848,7 @@ void listar_curso(){
 			fgets(procura_curso[linha_arquivo+3], MAX, relatorio_pessoa);
 			fgets(procura_curso[linha_arquivo+4], MAX, relatorio_pessoa);
 			
-			//verifica se o nome buscado est√° contido em qualquer string do arquivo
+			//verifica se o nome buscado est· contido em qualquer string do arquivo
 			if(strstr(procura_curso[linha_arquivo+3], curso)){
 				achou=1;
 			}
@@ -875,12 +875,12 @@ void listar_curso(){
 	if(flag==0){
 		system("cls");
 		printf("===========================================================\n");
-		printf("|               **********ATEN√á√ÉO**********               |\n");
+		printf("|               **********ATEN«√O**********               |\n");
 		printf("|                                                         |\n");
-		printf("|   N√£o existe(m) candidato(s) cadastrado(s) nesse curso  |\n");
+		printf("|   N„o existe(m) candidato(s) cadastrado(s) nesse curso  |\n");
 		printf("|           pressione <enter> para voltar ao menu         |\n");
     	printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();		
 	}
@@ -895,7 +895,7 @@ void listar_curso(){
 	}	
 }
 
-//gerar o relat√≥rio demogr√°fico com os percentuais
+//gerar o relatÛrio demogr·fico com os percentuais
 
 void relatorio_demografico(){
 	char masculino[MIN]="MASCULINO\n";
@@ -913,16 +913,16 @@ void relatorio_demografico(){
 	FILE *relatorio_pessoa;
 	fflush(stdin);//buffer de entrada
 	
-	relatorio_pessoa = fopen("relatorio_pessoa.txt", "r+");
+	relatorio_pessoa = fopen("..\\font\\relatorio_pessoa.txt", "r+");
 	
 	if(relatorio_pessoa==NULL){
 		printf("===========================================================\n");
-		printf("|               **********ATEN√á√ÉO**********               |\n");
+		printf("|               **********ATEN«√O**********               |\n");
 		printf("|                                                         |\n");
-		printf("|             N√£o h√° candidato(s) cadastrado(s)           |\n");
+		printf("|             N„o h· candidato(s) cadastrado(s)           |\n");
 		printf("|           pressione <enter> para voltar ao MENU         |\n");
 		printf("===========================================================\n");
-		fflush(stdout);//buffer de sa√≠da
+		fflush(stdout);//buffer de saÌda
 		getchar();//voltar ao menu
 		main();
 	}
@@ -981,7 +981,7 @@ void relatorio_demografico(){
 		achou_mulher=0;
 	}
 
-	//calcula o perentual de faixas et√°rias
+	//calcula o perentual de faixas et·rias
 	percentual_primeira = (quinze_vinte*100)/quantidade_cadastro;
 	percentual_segunda = (vinteUm_vinteCinco*100)/quantidade_cadastro;
 	percentual_terceira = (vinteSeis_trinta*100)/quantidade_cadastro;
@@ -992,7 +992,7 @@ void relatorio_demografico(){
 	percentual_mulher = (quantidade_mulher*100)/quantidade_cadastro;
 	
 	printf("===========================================================\n");
-	printf("                **********RELAT√ìRIO**********              \n");
+	printf("                **********RELAT”RIO**********              \n");
 	printf("\n");
 	printf("Quantidade de cadastros: %d\n", quantidade_cadastro);
 	printf("\n");
@@ -1009,7 +1009,7 @@ void relatorio_demografico(){
 	printf("===========================================================\n");
 	printf("|           pressione <enter> para voltar ao MENU         |\n");
 	printf("===========================================================\n");
-	fflush(stdout);//buffer de sa√≠da
+	fflush(stdout);//buffer de saÌda
 	getchar();//voltar ao menu
 	main();
 }
