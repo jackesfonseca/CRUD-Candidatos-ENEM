@@ -14,3 +14,8 @@ h)finalizar programa
 cada item realizado por um procedimento específico
 de acordo com as políticas de entrega de atividades repassadas pelo professor, certifico que os algoritmos e programas que estou entregando são de minha autoria e que não os repassei ou os recebi de qualquer outra pessoa
 Por Jackes Tiago Ferreira da Fonseca 19/0030291
+
+C - Create
+R - Read
+U - Update
+D - Delete
